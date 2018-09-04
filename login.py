@@ -18,11 +18,11 @@ cnt=0
 try:
     for y in year:
         for m1 in major1:
-            fh=open(y+m1,"w")
+            fh=open( "file/"+y+m1 ,"w")
             for m2 in major2:
                 for r in room:
                     stuid=y+m1+m2+r
-                    print(stuid)
+                    fh.write("\n\n"+stuid+"\n\n")
                     for c in range(1,31):
                         if c<10:
                             reqdata["stuid"]=stuid+'0'+str(c)
