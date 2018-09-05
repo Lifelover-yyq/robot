@@ -28,16 +28,16 @@ try:
                             reqdata["stuid"]=stuid+'0'+str(c)
                         else:
                             reqdata["stuid"]=stuid+str(c)
-                            data=urllib.urlencode(reqdata)
-                            conn.request('POST','/pls/wwwbks/bks_login2.login?jym2005=5346.022480888888',data,reqheaders)
-                            res=conn.getresponse()
-                            if res.status==302:
-                                fh.write(reqdata["stuid"]+"\n")
-                                cnt=cnt+1
-                                if cnt%10==0:
-                                    print(cnt)
-                            res.read()
-                            time.sleep(2)
+                        data=urllib.urlencode(reqdata)
+                        conn.request('POST','/pls/wwwbks/bks_login2.login?jym2005=5346.022480888888',data,reqheaders)
+                        res=conn.getresponse()
+                        if res.status==302:
+                           fh.write(reqdata["stuid"]+"\n")
+                           cnt=cnt+1
+                           if cnt%10==0:
+                              print(cnt)
+                              res.read()
+                              time.sleep(2)
             fh.close()
 except IOError:
     print "Error:"
